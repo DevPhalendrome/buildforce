@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, MapPin } from 'lucide-react'
-import Button from '@/components/ui/Button'
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -24,7 +23,6 @@ export default function ContactForm() {
     setStatus('loading')
 
     try {
-      // Send to form endpoint (Formspree or custom API)
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -38,135 +36,147 @@ export default function ContactForm() {
       } else {
         setStatus('error')
       }
-    } catch (error) {
+    } catch {
       setStatus('error')
     }
   }
 
   return (
     <div className="grid md:grid-cols-2 gap-12">
-      {/* Contact Information */}
-      <div>
-        <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-        <p className="text-gray-600 mb-8">
-          Have a project in mind? Contact us today for a free consultation and competitive quote.
-        </p>
-
-        <div className="space-y-6">
+      <div className="space-y-6">
+        <div className="p-6 rounded-lg border border-white/5 bg-[#141414]">
           <div className="flex items-start gap-4">
-            <Phone className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+            <Phone className="w-5 h-5 text-[#B87333] flex-shrink-0 mt-1" />
             <div>
-              <p className="font-semibold">Phone</p>
-              <p className="text-gray-600">+27 XX XXX XXXX</p>
+              <p className="font-semibold text-white text-sm">Phone</p>
+              <a href="tel:+27677715045" className="text-gray-400 hover:text-[#B87333] transition text-sm">(0)67 771 5045</a>
             </div>
           </div>
+        </div>
 
+        <div className="p-6 rounded-lg border border-white/5 bg-[#141414]">
           <div className="flex items-start gap-4">
-            <Mail className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+            <MessageCircle className="w-5 h-5 text-[#B87333] flex-shrink-0 mt-1" />
             <div>
-              <p className="font-semibold">Email</p>
-              <p className="text-gray-600">info@phalendroneworks.co.za</p>
+              <p className="font-semibold text-white text-sm">WhatsApp</p>
+              <a href="https://wa.me/27677715045" target="_blank" rel="noopener" className="text-gray-400 hover:text-[#B87333] transition text-sm">+27 67 771 5045</a>
             </div>
           </div>
+        </div>
 
+        <div className="p-6 rounded-lg border border-white/5 bg-[#141414]">
           <div className="flex items-start gap-4">
-            <MapPin className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+            <Mail className="w-5 h-5 text-[#B87333] flex-shrink-0 mt-1" />
             <div>
-              <p className="font-semibold">Location</p>
-              <p className="text-gray-600">South Africa</p>
+              <p className="font-semibold text-white text-sm">Email</p>
+              <a href="mailto:info@phalendrone.com" className="text-gray-400 hover:text-[#B87333] transition text-sm">info@phalendrone.com</a>
+              <p className="text-gray-600 text-xs mt-0.5">phalendrome@outlook.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-lg border border-white/5 bg-[#141414]">
+          <div className="flex items-start gap-4">
+            <MapPin className="w-5 h-5 text-[#B87333] flex-shrink-0 mt-1" />
+            <div>
+              <p className="font-semibold text-white text-sm">Registration</p>
+              <p className="text-gray-400 text-sm">Phalendrome Works (PTY) LTD</p>
+              <p className="text-gray-600 text-xs mt-0.5">Reg. No. 9451732512</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Contact Form */}
       <div>
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-2">Name</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1.5">Full Name</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent"
-              placeholder="Your Name"
+              className="w-full px-4 py-3 rounded-lg border border-white/10 bg-[#141414] text-white text-sm focus:outline-none focus:border-[#B87333] focus:ring-1 focus:ring-[#B87333]/30 transition placeholder-gray-600"
+              placeholder="Your name"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2">Email</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1.5">Email</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent"
-              placeholder="your@email.com"
+              className="w-full px-4 py-3 rounded-lg border border-white/10 bg-[#141414] text-white text-sm focus:outline-none focus:border-[#B87333] focus:ring-1 focus:ring-[#B87333]/30 transition placeholder-gray-600"
+              placeholder="you@example.com"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2">Phone</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1.5">Phone</label>
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent"
-              placeholder="+27 XXX XXX XXXX"
+              required
+              className="w-full px-4 py-3 rounded-lg border border-white/10 bg-[#141414] text-white text-sm focus:outline-none focus:border-[#B87333] focus:ring-1 focus:ring-[#B87333]/30 transition placeholder-gray-600"
+              placeholder="(0)XX XXX XXXX"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2">Service</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1.5">Service Required</label>
             <select
               name="service"
               value={formData.service}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent"
+              className="w-full px-4 py-3 rounded-lg border border-white/10 bg-[#141414] text-white text-sm focus:outline-none focus:border-[#B87333] focus:ring-1 focus:ring-[#B87333]/30 transition"
             >
               <option value="">Select a service</option>
-              <option value="Structural Works">Structural Works</option>
-              <option value="Carpentry">Carpentry & Framing</option>
-              <option value="Windows & Doors">Windows & Doors</option>
-              <option value="Electrical">Electrical & Fencing</option>
-              <option value="Plumbing">Plumbing & Gas</option>
-              <option value="Flooring">Flooring & Paving</option>
+              <option value="Roofing">Roofing</option>
+              <option value="Structural Work">Structural Work</option>
+              <option value="Carpentry">Carpentry</option>
+              <option value="Windows and Doors">Windows and Doors</option>
+              <option value="Finishing">Finishing</option>
+              <option value="Electrical and Fencing">Electrical and Fencing</option>
+              <option value="Flooring and Paving">Flooring and Paving</option>
+              <option value="Multiple">Multiple Services</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-2">Message</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1.5">Project Details</label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
-              rows={5}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-accent resize-none"
-              placeholder="Tell us about your project..."
+              rows={4}
+              className="w-full px-4 py-3 rounded-lg border border-white/10 bg-[#141414] text-white text-sm focus:outline-none focus:border-[#B87333] focus:ring-1 focus:ring-[#B87333]/30 transition placeholder-gray-600 resize-none"
+              placeholder="Describe your project, location, and any relevant details"
             />
           </div>
 
-          {/* Status Messages */}
           {status === 'success' && (
-            <div className="p-4 bg-green-100 text-green-700 rounded-lg">
-              ✓ Thank you! We&apos;ll be in touch soon.
+            <div className="p-4 rounded-lg bg-[#B87333]/15 border border-[#B87333]/30 text-[#CD8F4A] text-sm">
+              Thank you! Your quote request has been received. We will contact you shortly.
             </div>
           )}
           {status === 'error' && (
-            <div className="p-4 bg-red-100 text-red-700 rounded-lg">
-              ✗ Something went wrong. Please try again.
+            <div className="p-4 rounded-lg bg-red-900/20 border border-red-500/30 text-red-400 text-sm">
+              Something went wrong. Please try again or email us directly at info@phalendrone.com.
             </div>
           )}
 
-          <Button type="submit" disabled={status === 'loading'} className="w-full">
-            {status === 'loading' ? 'Sending...' : 'Send Message'}
-          </Button>
+          <button type="submit" disabled={status === 'loading'} className="btn-primary w-full py-3.5 text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+            {status === 'loading' ? 'Sending...' : 'Send Quote Request'}
+          </button>
         </form>
       </div>
     </div>

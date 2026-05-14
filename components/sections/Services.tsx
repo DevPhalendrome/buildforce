@@ -1,46 +1,45 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Hammer, Home, Wind, Zap, Wrench, SquareStack } from 'lucide-react'
+import { HardHat, Building2, Hammer, DoorOpen, Paintbrush, Zap } from 'lucide-react'
 
 export default function Services() {
   const services = [
     {
-      icon: SquareStack,
-      title: 'Structural Works',
-      description: 'Expert structural design and installation including welding, carports, and load-bearing frameworks built to last.'
+      icon: HardHat,
+      title: 'Roofing',
+      description: 'Complete roofing solutions from new installs to repairs and waterproofing. Metal, tile, and IBR roofing built for South African conditions.'
+    },
+    {
+      icon: Building2,
+      title: 'Structural Work',
+      description: 'Concrete foundations, steel reinforcement, load-bearing walls and structural alterations. The backbone of every build, done right.'
     },
     {
       icon: Hammer,
-      title: 'Carpentry & Framing',
-      description: 'Precision carpentry work and aluminum framing for residential and commercial projects with perfect execution.'
+      title: 'Carpentry',
+      description: 'Custom woodwork from fitted cupboards to timber structures. Precision joinery and finishing that transforms spaces.'
     },
     {
-      icon: Wind,
-      title: 'Windows & Doors',
-      description: 'Professional installation of aluminum windows, sliding patio doors, and garage door systems with modern design.'
+      icon: DoorOpen,
+      title: 'Windows and Doors',
+      description: 'Expert installation and replacement of windows, doors, and frames. Security, aesthetics, and weather resistance combined.'
+    },
+    {
+      icon: Paintbrush,
+      title: 'Finishing',
+      description: 'Plastering, painting, tiling, and ceiling installation. The final touch that makes every project look and feel premium.'
     },
     {
       icon: Zap,
-      title: 'Electrical & Fencing',
-      description: 'Complete electrical installations and expert electric fencing for security and safety with modern standards.'
-    },
-    {
-      icon: Wrench,
-      title: 'Plumbing & Gas',
-      description: 'Professional plumbing and gas fitting services ensuring safety, efficiency, and compliance with all regulations.'
-    },
-    {
-      icon: Home,
-      title: 'Flooring & Paving',
-      description: 'Professional flooring installation and paving solutions for all property types and residential needs.'
+      title: 'Electrical and Fencing',
+      description: 'Safe, certified electrical installations alongside sturdy fencing and gate solutions. Security and functionality from the ground up.'
     },
   ]
 
   return (
-    <section id="services" className="section-padding bg-gray-50">
+    <section id="services" className="section-padding bg-[#0D0D0D]">
       <div className="container-max">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,13 +47,13 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Complete construction solutions across multiple specialized trades
-          </p>
+          <div className="inline-flex items-center gap-2 text-[#B87333] text-xs font-bold uppercase tracking-widest mb-4">
+            <span className="w-6 h-px bg-[#B87333]" />What We Do<span className="w-6 h-px bg-[#B87333]" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Comprehensive construction across every trade</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">No matter the scope, we have the skills, the team, and the track record to deliver exceptional results on time and on budget.</p>
         </motion.div>
 
-        {/* Services Grid */}
         <div className="grid-symmetrical">
           {services.map((service, index) => {
             const Icon = service.icon
@@ -65,13 +64,13 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
+                className="bg-[#141414] p-8 rounded-lg border border-white/5 hover:border-[#B87333]/40 transition-all duration-300 hover:-translate-y-1.5 group"
               >
-                <div className="mb-4">
-                  <Icon className="w-12 h-12 text-accent" strokeWidth={1.5} />
+                <div className="mb-4 w-11 h-11 rounded flex items-center justify-center bg-[#B87333]/10 text-[#CD8F4A] group-hover:bg-[#B87333] group-hover:text-white transition-all duration-300">
+                  <Icon className="w-6 h-6" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
               </motion.div>
             )
           })}

@@ -6,34 +6,35 @@ import { Check } from 'lucide-react'
 
 export default function About() {
   const features = [
-    'Expert multi-trade construction teams',
-    'Premium quality materials and workmanship',
-    '20+ years of industry experience',
-    'Comprehensive warranty coverage',
-    'Licensed and fully insured contractors',
-    'Custom solutions for every project',
+    'Expert multi-trade construction teams across 18+ trades',
+    'Premium quality materials and workmanship on every project',
+    'Clear, transparent quotes with no hidden costs',
+    'Strict safety protocols on every site',
+    'Full coordination across all trades, no third-party juggling',
+    'Custom solutions for residential and commercial projects',
   ]
 
   return (
-    <section id="about" className="section-padding bg-gray-50">
+    <section id="about" className="section-padding bg-[#0D0D0D]">
       <div className="container-max">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Column */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">About Us</h2>
-            <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              Phalendrone Works is a leading provider of construction and installation services across South Africa. With over two decades of experience in structural works, carpentry, electrical systems, and specialized installations, we've earned the trust of hundreds of satisfied clients.
+            <div className="inline-flex items-center gap-2 text-[#B87333] text-xs font-bold uppercase tracking-widest mb-4">
+              <span className="w-6 h-px bg-[#B87333]" />About Us<span className="w-6 h-px bg-[#B87333]" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Built on trust, driven by craftsmanship</h2>
+            <p className="text-gray-400 mb-4 leading-relaxed">
+              Buildforce is the construction division of Phalendrome. We bring the same commitment to precision and quality that defines our group to every project we build.
             </p>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Our team combines technical expertise with attention to detail, delivering projects that exceed expectations. From residential renovations to large commercial installations, we bring professionalism and precision to every job.
+            <p className="text-gray-400 mb-8 leading-relaxed">
+              With over 18 trades covered in-house, we handle everything from structural groundwork to final finishes. Our team is built on clear communication, honest pricing, and workmanship that lasts.
             </p>
 
-            {/* Features List */}
             <div className="space-y-3 mb-8">
               {features.map((feature, index) => (
                 <motion.div
@@ -44,34 +45,34 @@ export default function About() {
                   viewport={{ once: true }}
                   className="flex items-start gap-3"
                 >
-                  <Check className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">{feature}</span>
+                  <Check className="w-5 h-5 text-[#B87333] flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-300 text-sm">{feature}</span>
                 </motion.div>
               ))}
             </div>
 
-            <motion.button
+            <motion.a
+              href="/contact"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="btn-primary"
+              className="btn-primary inline-flex"
             >
-              Contact Us Today
-            </motion.button>
+              Get a Free Quote
+            </motion.a>
           </motion.div>
 
-          {/* Image Column */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative h-96 md:h-full rounded-lg overflow-hidden"
+            className="relative h-96 md:h-[500px] rounded-lg overflow-hidden"
           >
             <Image
               src="/images/IMG-20260215-WA0190.jpg"
-              alt="Phalendrone Works team project"
+              alt="Buildforce construction project"
               fill
               className="object-cover"
             />

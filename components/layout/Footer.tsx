@@ -1,66 +1,60 @@
 'use client'
 
 import Link from 'next/link'
-import { Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-[#0D0D0D] text-white border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-accent mb-4">Buildforce</h3>
-            <p className="text-gray-400">A subdivision of Phalendrone Solutions (PTY) LTD. Professional construction services throughout South Africa.</p>
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-[#B87333] rounded flex items-center justify-center text-white font-black text-xs">BF</div>
+              <div>
+                <span className="text-white font-extrabold tracking-tight">Build</span>
+                <span className="text-[#B87333] font-extrabold tracking-tight">force</span>
+              </div>
+            </Link>
+            <p className="text-gray-500 text-sm leading-relaxed">A division of Phalendrome Solutions (PTY) LTD. Professional construction services across South Africa.</p>
+            <p className="text-gray-600 text-xs mt-3">Reg. No. 9451732512</p>
           </div>
 
-          {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><Link href="#" className="hover:text-accent transition">Roofing</Link></li>
-              <li><Link href="#" className="hover:text-accent transition">Structural Work</Link></li>
-              <li><Link href="#" className="hover:text-accent transition">Carpentry</Link></li>
-              <li><Link href="#" className="hover:text-accent transition">Electrical</Link></li>
-              <li><Link href="#" className="hover:text-accent transition">Plumbing</Link></li>
+            <h4 className="font-semibold mb-4 text-white/80 text-xs uppercase tracking-wider">Services</h4>
+            <ul className="space-y-2 text-gray-500 text-sm">
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Roofing</Link></li>
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Structural Work</Link></li>
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Carpentry</Link></li>
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Windows and Doors</Link></li>
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Finishing</Link></li>
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Electrical and Fencing</Link></li>
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Flooring and Paving</Link></li>
             </ul>
           </div>
 
-          {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><Link href="#about" className="hover:text-accent transition">About Us</Link></li>
-              <li><Link href="/projects" className="hover:text-accent transition">Our Projects</Link></li>
-              <li><Link href="/contact" className="hover:text-accent transition">Contact</Link></li>
-              <li><Link href="#" className="hover:text-accent transition">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-accent transition">Terms of Service</Link></li>
+            <h4 className="font-semibold mb-4 text-white/80 text-xs uppercase tracking-wider">Company</h4>
+            <ul className="space-y-2 text-gray-500 text-sm">
+              <li><Link href="/" className="hover:text-[#B87333] transition">Home</Link></li>
+              <li><Link href="/projects" className="hover:text-[#B87333] transition">Our Projects</Link></li>
+              <li><Link href="/contact" className="hover:text-[#B87333] transition">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Contact & Social */}
           <div>
-            <h4 className="font-semibold mb-4">Contact & Social</h4>
-            <div className="space-y-3 text-gray-400 mb-6">
-              <a href="tel:+27123456789" className="flex items-center gap-2 hover:text-accent transition">
-                <Phone size={18} /> +27 (0) 12 345 6789
-              </a>
-              <a href="mailto:info@phalendrone.com" className="flex items-center gap-2 hover:text-accent transition">
-                <Mail size={18} /> info@phalendrone.com
-              </a>
-            </div>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-accent transition"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-accent transition"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-accent transition"><Linkedin size={20} /></a>
+            <h4 className="font-semibold mb-4 text-white/80 text-xs uppercase tracking-wider">Contact</h4>
+            <div className="space-y-3 text-gray-500 text-sm">
+              <a href="tel:+27677715045" className="block hover:text-[#B87333] transition">(0)67 771 5045</a>
+              <a href="tel:+27723927759" className="block hover:text-[#B87333] transition">(0)72 392 7759</a>
+              <a href="https://wa.me/27677715045" target="_blank" rel="noopener" className="block hover:text-[#B87333] transition">WhatsApp: +27 67 771 5045</a>
+              <a href="mailto:info@phalendrone.com" className="block hover:text-[#B87333] transition">info@phalendrone.com</a>
+              <a href="mailto:phalendrome@outlook.com" className="block hover:text-[#B87333] transition">phalendrome@outlook.com</a>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-          <p>&copy; 2026 Buildforce - A Division of Phalendrome Solutions (PTY) LTD. All rights reserved.</p>
+        <div className="border-t border-white/5 pt-8 text-center text-gray-600 text-xs">
+          <p>&copy; {new Date().getFullYear()} Buildforce - A Division of Phalendrome Solutions (PTY) LTD | Reg. No. 9451732512. All rights reserved.</p>
         </div>
       </div>
     </footer>

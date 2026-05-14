@@ -4,15 +4,16 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'Buildforce | Professional Construction & Building Services | South Africa',
-  description: 'Expert construction services spanning 18+ specialized trades. 250+ projects completed, 15+ years experience. Roofing, carpentry, structural, electrical, plumbing, finishing.',
-  keywords: ['construction', 'roofing', 'carpentry', 'building services', 'south africa'],
-  authors: [{ name: 'Phalendrone Works' }],
+  metadataBase: new URL('https://buildforce.co.za'),
+  title: 'Buildforce | Professional Construction Services South Africa',
+  description: 'Expert construction services across 18+ trades. Roofing, structural, carpentry, electrical, finishing, and more. Premium craftsmanship backed by Phalendrome.',
+  keywords: ['construction', 'roofing', 'carpentry', 'structural', 'building services', 'south africa'],
+  authors: [{ name: 'Phalendrome Works' }],
   openGraph: {
     type: 'website',
     locale: 'en_ZA',
     url: 'https://buildforce.co.za',
-    title: 'Buildforce | Professional Construction & Building Services',
+    title: 'Buildforce | Professional Construction Services',
     description: 'Expert construction services spanning 18+ specialized trades.',
     images: [{
       url: '/images/IMG-20260215-WA0190.jpg',
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Buildforce | Professional Construction & Building Services',
+    title: 'Buildforce | Professional Construction Services',
     description: 'Expert construction services spanning 18+ specialized trades.',
     images: ['/images/IMG-20260215-WA0190.jpg'],
   },
@@ -37,10 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#0f0f0f" />
+        <meta name="theme-color" content="#0D0D0D" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="bg-white flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1">
           {children}
