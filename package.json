@@ -1,0 +1,41 @@
+{
+  "name": "phalendrone-works",
+  "version": "2.0.0",
+  "description": "Premium construction & building services website — Buildforce",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "preview": "next start"
+  },
+  "dependencies": {
+    "framer-motion": "^10.16.0",
+    "lucide-react": "^0.575.0",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.55.0",
+    "eslint-config-next": "^14.0.0",
+    "postcss": "^8.4.0",
+    "prettier": "^3.1.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": [
+    "construction",
+    "roofing",
+    "carpentry",
+    "welding",
+    "south-africa",
+    "buildforce"
+  ],
+  "author": "Phalendrone Works",
+  "license": "MIT"
+}
