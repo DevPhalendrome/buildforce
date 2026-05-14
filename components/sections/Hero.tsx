@@ -2,82 +2,77 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#080808]">
-      <div className="absolute inset-0 opacity-30">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="absolute inset-0">
         <Image
           src="/images/IMG-20260215-WA0190.jpg"
-          alt="Buildforce construction"
+          alt=""
           fill
           className="object-cover"
+          sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/80 via-[#080808]/60 to-[#080808]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/85 to-surface/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/30" />
       </div>
 
-      <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)',
-        backgroundSize: '48px 48px'
-      }} />
+      <div className="relative z-10 w-full">
+        <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12 py-32 md:py-40">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-8 h-px bg-copper" />
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/40">
+                South Africa&apos;s Premier Construction Partner
+              </span>
+            </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-      >
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#B87333]/30 bg-[#B87333]/10 text-[#CD8F4A] text-xs font-semibold mb-6">
-          South Africa's Premier Construction Partner
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.92] tracking-tight mb-8">
+              We build structures that stand the test of time
+            </h1>
+
+            <p className="text-base sm:text-lg text-white/50 max-w-xl mb-10 leading-relaxed">
+              From foundation to finish, Buildforce delivers expert construction across{' '}
+              <span className="text-white/80 font-medium">18+ trades</span>. Premium craftsmanship
+              backed by Phalendrome&apos;s trusted legacy.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-20">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-copper text-black text-sm font-semibold hover:bg-copper-light transition-colors duration-300"
+              >
+                Get a Free Quote
+                <ArrowRight className="w-4 h-4" strokeWidth={2} />
+              </Link>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 text-white/80 text-sm font-medium hover:border-white/30 hover:text-white transition-all duration-300"
+              >
+                View Our Work
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-3 gap-8 max-w-lg">
+              {[
+                { value: '18+', label: 'Trades Covered' },
+                { value: '161', label: 'Projects Completed' },
+                { value: '5+', label: 'Years Experience' },
+              ].map((stat) => (
+                <div key={stat.label} className="border-l border-white/10 pl-5">
+                  <p className="text-3xl md:text-4xl font-bold text-white">{stat.value}</p>
+                  <p className="text-xs text-white/30 uppercase tracking-[0.1em] mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+      </div>
 
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-          We build structures that <span className="text-[#B87333]">stand the test of time</span>
-        </h1>
-
-        <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-          From foundation to finish, Buildforce delivers expert construction across 18+ trades. Premium craftsmanship backed by Phalendrome's trusted legacy.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Link href="/contact" className="btn-primary text-lg px-8 py-4 inline-flex items-center justify-center">Get a Free Quote</Link>
-          <Link href="/projects" className="btn-secondary text-lg px-8 py-4 inline-flex items-center justify-center">View Our Work</Link>
-        </div>
-
-        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto border-t border-white/5 pt-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="text-2xl md:text-3xl font-extrabold text-[#D4A857] mb-1">18+</div>
-            <div className="text-gray-500 text-sm">Trades Covered</div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="text-2xl md:text-3xl font-extrabold text-[#D4A857] mb-1">161</div>
-            <div className="text-gray-500 text-sm">Projects Completed</div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="text-2xl md:text-3xl font-extrabold text-[#D4A857] mb-1">5+</div>
-            <div className="text-gray-500 text-sm">Years of Experience</div>
-          </motion.div>
-        </div>
-      </motion.div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent pointer-events-none" />
     </section>
   )
 }

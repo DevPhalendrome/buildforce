@@ -2,46 +2,66 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+
+const featured = [
+  { src: '/images/IMG-20260215-WA0000.jpg', label: 'Roofing', cols: 2, rows: 2 },
+  { src: '/images/IMG-20260215-WA0006.jpg', label: 'Roofing' },
+  { src: '/images/IMG-20260215-WA0035.jpg', label: 'Carpentry' },
+  { src: '/images/IMG-20260215-WA0015.jpg', label: 'Finishing' },
+  { src: '/images/IMG-20260215-WA0138.jpg', label: 'Flooring & Paving', cols: 2 },
+  { src: '/images/IMG-20260215-WA0008.jpg', label: 'Windows & Doors' },
+  { src: '/images/IMG-20260215-WA0042.jpg', label: 'Electrical & Fencing' },
+  { src: '/images/IMG-20260215-WA0190.jpg', label: 'General' },
+]
 
 export default function Gallery() {
-  const galleryImages = [
-    { src: '/images/IMG-20260215-WA0000.jpg', alt: 'Roofing project' },
-    { src: '/images/IMG-20260215-WA0006.jpg', alt: 'Structural work' },
-    { src: '/images/IMG-20260215-WA0035.jpg', alt: 'Carpentry project' },
-    { src: '/images/IMG-20260215-WA0015.jpg', alt: 'Finishing work' },
-    { src: '/images/IMG-20260215-WA0190.jpg', alt: 'Construction project' },
-    { src: '/images/IMG-20260215-WA0138.jpg', alt: 'Flooring and paving' },
-  ]
-
   return (
-    <section id="gallery" className="section-padding bg-[#080808]">
-      <div className="container-max">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 text-[#B87333] text-xs font-bold uppercase tracking-widest mb-4">
-            <span className="w-6 h-px bg-[#B87333]" />Our Work<span className="w-6 h-px bg-[#B87333]" />
+    <section id="gallery" className="section bg-surface-900 border-t border-white/[0.04]">
+      <div className="container">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+          <div className="max-w-xl">
+            <span className="label flex items-center gap-3 mb-5">
+              <span className="w-6 h-px bg-copper" />
+              Our Work
+            </span>
+            <h2 className="heading-lg mb-4">
+              Recent <span className="text-copper">Projects</span>
+            </h2>
+            <p className="subtitle">
+              A showcase of our finest construction and installation projects across South Africa.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Recent Projects</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-2">A showcase of our finest construction and installation projects</p>
-          <Link href="/projects" className="inline-flex items-center gap-1 text-[#B87333] hover:text-[#CD8F4A] font-semibold text-sm mt-2 transition">
-            View all 161 projects &rarr;
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] text-white/40 hover:text-white transition-colors duration-300 flex-shrink-0"
+          >
+            View All 161 Projects
+            <ArrowRight className="w-3 h-3" strokeWidth={2} />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {galleryImages.map((image, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.04]">
+          {featured.map((img, i) => (
             <div
-              key={index}
-              className="relative h-64 rounded-lg overflow-hidden group bg-[#141414]"
+              key={i}
+              className="relative overflow-hidden group"
+              style={{
+                gridColumn: img.cols ? `span ${img.cols}` : undefined,
+                gridRow: img.rows ? `span ${img.rows}` : undefined,
+                aspectRatio: img.cols === 2 && img.rows === 2 ? '1' : img.cols === 2 ? '2/1' : '1/1',
+              }}
             >
               <Image
-                src={image.src}
-                alt={image.alt}
+                src={img.src}
+                alt={img.label}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                sizes="(max-width: 768px) 50vw, 25vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                <p className="text-white font-semibold text-sm">{image.alt}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                <span className="text-xs font-medium text-white/80">{img.label}</span>
               </div>
             </div>
           ))}
