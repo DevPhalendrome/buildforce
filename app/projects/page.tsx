@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import Img from '@/lib/img'
 import { useState, useCallback } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { allProjects, filterOptions, categoryLabels } from '@/lib/projects'
@@ -67,7 +67,7 @@ export default function ProjectsPage() {
               onClick={() => setSelectedIndex(index)}
               className="relative aspect-[4/3] overflow-hidden group bg-surface text-left"
             >
-              <Image
+              <Img
                 src={project.src}
                 alt={project.category}
                 fill
@@ -117,7 +117,7 @@ export default function ProjectsPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative w-full h-full max-w-6xl max-h-[80vh]">
-              <Image
+              <Img
                 src={filtered[selectedIndex].src}
                 alt={filtered[selectedIndex].category}
                 fill

@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
+import Img from '@/lib/img'
 import { ArrowRight } from 'lucide-react'
 
 const features = [
@@ -54,7 +54,7 @@ export default function About() {
 
           <div className="relative">
             <div className="relative overflow-hidden h-[500px] sm:h-[600px]">
-              <Image
+              <Img
                 src="/images/IMG-20260215-WA0190.jpg"
                 alt="Buildforce construction project"
                 fill

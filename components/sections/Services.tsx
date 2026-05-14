@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
+import Img from '@/lib/img'
 import { ArrowRight } from 'lucide-react'
 
 const services = [
@@ -73,7 +73,7 @@ export default function Services() {
               className="group relative bg-surface-900 overflow-hidden"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <Image
+                <Img
                   src={service.image}
                   alt=""
                   fill

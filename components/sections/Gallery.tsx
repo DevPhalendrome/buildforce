@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
+import Img from '@/lib/img'
 import { ArrowRight } from 'lucide-react'
 
 const featured = [
@@ -52,7 +52,7 @@ export default function Gallery() {
                 aspectRatio: img.cols === 2 && img.rows === 2 ? '1' : img.cols === 2 ? '2/1' : '1/1',
               }}
             >
-              <Image
+              <Img
                 src={img.src}
                 alt={img.label}
                 fill

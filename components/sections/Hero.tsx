@@ -1,14 +1,14 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
+import Img from '@/lib/img'
 import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <Image
+        <Img
           src="/images/IMG-20260215-WA0190.jpg"
           alt=""
           fill
