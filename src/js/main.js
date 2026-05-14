@@ -147,7 +147,7 @@
       var phone = (form.querySelector('[name="phone"]') && form.querySelector('[name="phone"]').value.trim()) || '';
       var service = (form.querySelector('[name="service"]') && form.querySelector('[name="service"]').value) || '';
       var message = (fields.message && fields.message.value.trim()) || '';
-      var result = document.getElementById('result');
+      var result = document.getElementById('formResult');
       var btn = form.querySelector('button[type="submit"]');
 
       Object.keys(fields).forEach(function(k){ if(fields[k]) validate(fields[k]); });
